@@ -1,0 +1,128 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title><%= title || "My App" %></title>  
+  <link rel="stylesheet" href="/style.css">  
+  <style>
+    /* Reset default styles */
+    * {
+      margin: 0;
+        padding: 0;
+          box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            }
+
+            /* Body and Container */
+            body {
+              background-color: #f8f8f8;
+                color: #333;
+                  font-size: 16px;
+                  }
+
+                  .container {
+                    width: 90%;
+                      max-width: 1200px;
+                        margin: 0 auto;
+                          padding: 20px;
+                          }
+
+                          /* Header */
+                          header {
+                            background-color: #343a40;
+                              color: white;
+                                padding: 20px 0;
+                                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                                  }
+
+                                  header nav {
+                                    display: flex;
+                                      justify-content: space-between;
+                                        align-items: center;
+                                        }
+
+                                        header nav a.logo {
+                                          font-size: 24px;
+                                            font-weight: 700;
+                                              color: white;
+                                                text-decoration: none;
+                                                }
+
+                                                header nav ul {
+                                                  display: flex;
+                                                    gap: 20px;
+                                                    }
+
+                                                    header nav ul li a {
+                                                      color: white;
+                                                        text-decoration: none;
+                                                          font-size: 16px;
+                                                            transition: color 0.3s ease;
+                                                            }
+
+                                                            header nav ul li a:hover {
+                                                              color: #f39c12;
+                                                              }
+
+                                                              /* Main Section */
+                                                              main {
+                                                                background-color: #fff;
+                                                                  padding: 40px 0;
+                                                                  }
+
+                                                                  main .container {
+                                                                    background-color: #fff;
+                                                                      padding: 20px;
+                                                                        border-radius: 8px;
+                                                                          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                                                                          }
+
+                                                                          /* Footer */
+                                                                          footer {
+                                                                            background-color: #343a40;
+                                                                              color: white;
+                                                                                padding: 20px 0;
+                                                                                  text-align: center;
+                                                                                  }
+
+                                                                                  footer p {
+                                                                                    font-size: 14px;
+                                                                                    }
+                                                                                    </style>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>  
+<body>  
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="logo">MyApp</a>
+        <ul>
+          <% if (user) { %>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/logout">Logout</a></li>
+          <% } else { %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+          <% } %>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Konten halaman spesifik -->  
+      <%- body %>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <%= new Date().getFullYear() %> My App. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>  
+</html>
+
